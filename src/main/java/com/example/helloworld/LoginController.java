@@ -13,18 +13,16 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class LoginController {
 
-    Map<String, String> sessionMap = new HashMap<>();
-
     @GetMapping("/login")
     public String login(HttpSession httpSession, @RequestParam String name) {
-        sessionMap.put(httpSession.getId(), name);
+        httpSession.setAttribute("name", name);
 
         return "saved";
     }
 
     @GetMapping("/myName")
     public String login(HttpSession httpSession) {
-        String myName = sessionMap.get(httpSession.getId());
+        String myName = (String) httpSession.getAttribute("name");
 
         return myName;
     }
