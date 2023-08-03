@@ -1,4 +1,8 @@
 spring:
+  session:
+    redis:
+      repository-type: default
+
   data:
     redis:
       host: localhost
