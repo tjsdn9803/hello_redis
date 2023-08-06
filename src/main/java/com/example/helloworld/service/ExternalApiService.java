@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExternalApiService {
 
+    @Cacheable(cacheNames = "userNameCache", key = "#userId")
     public String getUserName(String userId) {
         try{
             Thread.sleep(500);
